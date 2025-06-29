@@ -16,7 +16,11 @@ pipeline {
                 sh 'mvn compile'
             }
         }
-
+stage('test'){
+    steps {
+sh 'mvn test'
+    }
+}
         stage('build') {
             steps {
                  sh 'mvn clean install'
@@ -29,7 +33,7 @@ pipeline {
   post{
 
   success{
-     echo 'Build success'
+     echo 'Build is success'
   }
     
   failure{
